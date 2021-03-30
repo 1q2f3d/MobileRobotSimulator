@@ -1,0 +1,25 @@
+/*1cm -> 2px 
+ 45cm -> 90px
+*/
+#background{
+    position: relative;
+    top: 9px; 
+    left: 11px;
+}
+#robot{
+    transform-origin: 38.7px 38.5px;
+    transform: rotate(0deg);
+    position: relative;
+    top: 736px;
+    left: 330px;
+    cursor:pointer;
+}
+.robotDot{
+    /* visibility: hidden; */
+    position: absolute;
+    height: 1px;
+    width: 1px;
+}
+.wall,.metal,.nonMetal,.prop,.redCircle,.blueCircle{
+    cursor: pointer;
+}

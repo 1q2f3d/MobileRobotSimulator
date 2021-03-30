@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MobileRobotSimulator</title>
+    <script src="js/var.js"></script>
+    <script src="js/MR_Functions.js"></script>
+    <script src="js/crashes.js"></script>
+    <script src="js/btns.js"></script>
+    <script src="js/inits.js"></script>
+    <script src="js/manualRobot.js"></script>
+    <script src="js/manualWall.js"></script>
+    <script src="js/get_Functions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <!-- 맵 밖에 벽-->
+        <div style="position:absolute;">
+            <img style="position: relative; top:-9.2px;" class="wall" src="image\shortWall_revise.png" width="50%" height="50%"></img>
+        </div>
+        <div style="position:absolute;">
+            <img style="position: relative; top:-1px;" class="wall" src="image\longWall_revise.png" width="50%" height="50%"></img>
+        </div>
+        <div style="position:absolute;">
+            <img style="position: relative; top:813px;" class="wall" src="image\shortWall_revise.png" width="50%" height="50%"></img>
+        </div>
+        <div style="position:absolute;">
+            <img style="position: relative; top:-1px; left:410px;" class="wall" src="image\longWall_revise.png" width="50%" height="50%"></img>
+        </div>
+        <div style="position:absolute;">
+            <div id="background"><img src="image\background_revise.png" width="50%" height="50%"></img></div>
+            <!-- 높이 : 664.5px | 너비 : 329px 810 400  -->
+        </div>
+        <!-- 맵 밖에 벽 끝-->
+
+        <!-- 맵에 벽 설치하는 코드 부분 -->
+        <div style="position:absolute">
+            <img style="position:relative;top:9px;left:92px" class="wall" src="image\mapWallLong.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:9px;left:201px" class="wall" src="image\mapWallLong.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:9px;left:310px" class="wall" src="image\mapWallLong.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:199px;left:201px" class="wall" src="image\mapWallLong.png" ></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-50px;left:247px" class="wall" src="image\mapWallLong.png" ></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-349px;left:247px" class="wall" src="image\mapWallLong.png"></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg);">
+            <img style="position:relative;top:-149px;left:357px" class="wall" src="image\mapWallLong.png"></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg);">
+            <img style="position:relative;top:-349px;left:357px" class="wall" src="image\mapWallLong.png"></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-50px;left:567px" class="wall" src="image\mapWallLong.png"></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-349px;left:567px" class="wall" src="image\mapWallLong.png"></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:510px;left:92px" class="wall" src="image\mapWallLong.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:510px;left:310px" class="wall" src="image\mapWallLong.png" ></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-349px;left:666px" class="wall" src="image\mapWallLong.png"></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:418px;left:201px" class="wall" src="image\mapWallShort.png"></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:568px;left:201px" class="wall" src="image\mapWallShort.png"></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-30px;left:686px" class="wall" src="image\mapWallShort.png"></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-179px;left:686px" class="wall" src="image\mapWallShort.png"></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:85px;left:123px" class="metal" src="image\Metal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:85px;left:232px" class="metal" src="image\Metal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:285px;left:122px" class="metal" src="image\Metal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:395px;left:230px" class="metal" src="image\Metal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:604px;left:122px" class="metal" src="image\Metal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:705px;left:234px" class="metal" src="image\Metal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:85px;left:20px" class="nonMetal" src="image\nonMetal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:85px;left:336px" class="nonMetal" src="image\nonMetal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:285px;left:232px" class="nonMetal" src="image\nonMetal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:395px;left:23px" class="nonMetal" src="image\nonMetal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:604px;left:232px" class="nonMetal" src="image\nonMetal.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:705px;left:80px" class="nonMetal" src="image\nonMetal.png" ></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-27px;left:765px" class="nonMetal" src="image\nonmetal.png" width="92" height="6"></img>
+        </div>
+        <div style="position:absolute;transform:rotate(90deg)">
+            <img style="position:relative;top:-288px;left:765px" class="nonMetal" src="image\nonmetal.png" width="92" height="6"></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:17px;left:46px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:16px;left:47.6px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:17px;left:150px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:16px;left:151px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:17px;left:260px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:16px;left:261px" class="blueCircle" src="image\blueCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:17px;left:365px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:16px;left:366px" class="blueCircle" src="image\blueCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:575px;left:365px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:575px;left:345px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:575px;left:385px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:574px;left:366px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:574px;left:346px" class="blueCircle" src="image\blueCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:574px;left:386px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:575px;left:47px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:575px;left:27px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:575px;left:67px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:574px;left:48px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:574px;left:28px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:574px;left:68px" class="blueCircle" src="image\blueCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:655px;left:27px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:654px;left:28px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:655px;left:385px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:654px;left:386px" class="blueCircle" src="image\blueCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:760px;left:27px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:759px;left:28px" class="redCircle" src="image\redCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:750px;left:37px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:749px;left:38px" class="blueCircle" src="image\blueCircle.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:770px;left:37px" class="prop" src="image\prop.png" ></img>
+        </div>
+        <div style="position:absolute">
+            <img style="position:relative;top:769px;left:38px" class="blueCircle" src="image\blueCircle.png" ></img>
+        </div>
+        
+        <div id="mapWallArea"></div>
+
+        <!-- 맵에 벽 설치하는 코드 부분 끝 -->
+
+        <!-- 로봇 -->
+        <div style="position: absolute;">
+            <div id="robot" onmousewheel="angleResize(id);" onmousedown="startDrag(event,this);">
+                <div id="robotBody" style="border-radius: 100%;position:absolute;left:2.5px; top:2px;"><img src="image\robotBody.png"></img></div>
+                <img id="robotFront" style="position: absolute;top: 36.5px; left: -32.5px;" src="image\robotFront.png"></img>
+                <img class="robotDot" src="image\prop.png" style="left: 2.5px; top:38.3px;" ></img>
+                <img class="robotDot" src="image\prop.png" style="left: 11.039px; top:14.538px;" ></img>
+                <img class="robotDot" src="image\prop.png" style="left: 31.662px; top:2.055px;"></img>
+                <img class="robotDot" src="image\prop.png" style="left: 56.250px; top:6.4px;"></img>
+                <img class="robotDot" src="image\prop.png" style="left: 71.7px; top:23.516px;" ></img>
+                <img class="robotDot" src="image\prop.png" style="left: 73px; top:48.484px;"></img>
+                <img class="robotDot" src="image\prop.png" style="left: 56.250px; top:69.6px;"></img>
+                <img class="robotDot" src="image\prop.png" style="left: 31.6px; top:73px;" ></img>
+                <img class="robotDot" src="image\prop.png" style="left: 9.2px; top:58.462px;"></img>
+                <div style="position: absolute; top:20px; left: 80px; font-size: 30px;" id="robotRotate"></div>
+            </div>
+        </div>
+        <!-- 로봇 끝 -->
+        <textarea spellcheck="false" onkeydown="javascript:key_flg=1;" onkeyup="javascript:key_flg=0;" style="resize: none; position: relative; left: 450px; font-size: 25px;" id="code" cols="30"
+            rows="20">hs(0,0,0x08,0);</textarea>
+        <button style="position: relative; top:40px; left:60px; height:50px; width:100px;"
+            onclick="startBtn();" id="startBtn">Start</button>
+        <button style="position: relative; top:40px; left:80px; height:50px; width:100px;"
+            onclick="clearBtn();">Clear</button>
+        <button style="position: relative; top:40px; left:100px; height:50px; width:100px;" onclick="resetBtn();">Reset</button>
+        <div style="position: absolute; top:650px; left: 594px; font-size: 50px; color: red;" id="wallCrash"></div>
+        
+        <div style="position: absolute; top:10px; left: 905px; font-size: 30px;">Add</div>
+        <img src="image\mapWallLong.png" style="cursor:pointer;position: absolute; left: 905px; top:70px;" onclick="addWall(1);"></img>
+        <img src="image\mapWallShort.png" style="cursor:pointer;position: absolute; left: 945px; top:70px;"onclick="addWall(2);"></img>
+        <img src="image\mapWallShort.png" style="cursor:pointer;position: absolute; left: 1010px; top:70px; height: 30px; width:20px;" onclick="addWall(3);"></img>
+        <input type="text" id="wallMakeSize" style="position: absolute; left: 995px; top:120px; width: 50px;"></input>
+    </div>
+</body>
+
+</html>
